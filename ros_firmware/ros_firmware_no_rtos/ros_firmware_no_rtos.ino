@@ -122,7 +122,19 @@ void loop() {
                 if(direction == GO_FORWARD){
                     st.setTargetVelocity(LEFT_ID, target_speed);
                     st.setTargetVelocity(RIGHT_ID, -target_speed);
-                    debug_line_2 = "motor: FORWARD";        
+                    debug_line_2 = "motor: FORWARD";
+                } else if(direction == GO_BACKWARD){
+                    st.setTargetVelocity(LEFT_ID, -target_speed);
+                    st.setTargetVelocity(RIGHT_ID, target_speed);
+                    debug_line_2 = "motor: BACKWARD";
+                } else if(direction == TURN_LEFT){
+                    st.setTargetVelocity(LEFT_ID, -target_speed);
+                    st.setTargetVelocity(RIGHT_ID, -target_speed);
+                    debug_line_2 = "motor: TURN LEFT";
+                } else if(direction == TURN_RIGHT){
+                    st.setTargetVelocity(LEFT_ID, target_speed);
+                    st.setTargetVelocity(RIGHT_ID, target_speed);
+                    debug_line_2 = "motor: TURN RIGHT";
                 } else if(direction == STOP){
                     st.setTargetVelocity(LEFT_ID, 0);
                     st.setTargetVelocity(RIGHT_ID, 0);
